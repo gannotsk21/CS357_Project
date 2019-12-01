@@ -1,6 +1,7 @@
 import os
 import subprocess
 import sys
+import string
 
 if len(sys.argv) > 1:
         inputdir = sys.argv[1]
@@ -29,7 +30,7 @@ def readInput(input):
            print("Invalid: empty variables state")
            exit(1)
        # TODO:check to see if alphabet is in correct format
-       alphabet = [lines[0][1:-1].split(",")]
+       alphabet = list(lines[0][1:-1].split(","))
        lines.remove(lines[0])
 
        # checks to see if alphabet is empty
@@ -49,6 +50,7 @@ def readInput(input):
        if not acceptState:
            print("Invalid: accept state")
            exit(1)
+        
        # TODO:check to see if rules are in correct format
        rules = []
        y = len(var)
@@ -56,19 +58,30 @@ def readInput(input):
            for x in range(0, y):
                if(rule[0:3] == var[x]):
                    rules.append(rule)
+                   var[x] = var[x][1]
 
        # checks to see if rules is empty
        if not rules:
            print("Invalid: no rules")
            exit(1)
-       print(var)
-       print(*alphabet, sep = '\n')
-       print(*rules, sep = '\n')
-       print(acceptState)
+       #print(*rules, sep = '\n')
+       
+       startState = "<" + var[0] + ">"
+       print("start state: ", startState)
+       totalStates = []
+       totalStates.append("q_accept")
+       totalStates.append("q_loop")
+       print("total states: ",totalStates)
+       print("the alphabet", alphabet)
     
-def createPDA():
-    print("use previous data to make petals")
-    
+       gamma = alphabet+ var
+       gamma.append("$")
+       print("gamma ", gamma)
+       print("delta:")
+       print("accept state: ", acceptState)       
+       
+       
+       
 
 for file in os.listdir(inputdir):
     # check if this is a file
@@ -79,4 +92,3 @@ for file in os.listdir(inputdir):
         continue
     input = file[:-4] #strips off extension
     readInput(input)
-    createPDA()
