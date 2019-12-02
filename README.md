@@ -6,8 +6,8 @@ Algorithm for converting a Context Free Grammar to PDA
 1. Create q_startState
 2. Create q1, place $ on stack when transitioning from q_startState to q1 3. Create q_loop
 4. Create a “petal” using each of the rules:
-  *a. Iterate backwards through each individual rule, pushing each variable to the stack
-  *b. Once the end of a rule is reached, return to q_loop and go to the next rule
+  1. Iterate backwards through each individual rule, pushing each variable to the stack
+  2. Once the end of a rule is reached, return to q_loop and go to the next rule
 5. Create a petal that pops each character off of the stack
 6. Create q_accept, pop $ off the stack when transitioning from q_loop to q_accept
 
