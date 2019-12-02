@@ -21,50 +21,50 @@ Example:
 
 Input:
 
-{\<A>, <B>, <C>}
+{\<A>, \<B>, \<C>}
   
 {a, b}
 
-<A> :: a | <B> a b | e 
+\<A> :: a | \<B> a b | e 
   
-<B> :: a <C> b | <C> a 
+\<B> :: a <C> b | \<C> a 
   
-<C> :: b <C> | b | a b <C> 
+\<C> :: b <C> | b | a b \<C> 
   
-{<A>}
+{\<A>}
   
 
 Output:
 PDA:
-q_startState -> q1 : e, e-> $ q1 -> q_loop : e, e-> <A> q_loop:
-e,<A> ->a
+q_startState -> q1 : e, e-> $ q1 -> q_loop : e, e-> \<A> q_loop:
+e,\<A> ->a
   
 |
-e,<A> ->b
+e,\<A> ->b
 e, e ->a
-e, e -><B>
+e, e ->\<B>
   
 |
-e,<A> ->e
+e,\<A> ->e
   
 |
-e,<B> ->b
-e, e -><C>
+e,\<B> ->b
+e, e ->\<C>
 e, e ->a
   
 |
-e,<B> ->a
-e, e -><C>
+e,\<B> ->a
+e, e ->\<C>
   
 |
-e,<C> -><C>
+e,\<C> ->\<C>
 e, e ->b
   
 |
-e,<C> ->b
+e,\<C> ->b
   
 |
-e,<C> -><C>
+e,\<C> ->\<C>
 e, e ->b
 e, e ->a
   
