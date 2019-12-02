@@ -25,12 +25,15 @@ Output:
 PDA:
 q_startState -> q1 : e, e-> $ q1 -> q_loop : e, e-> <A> q_loop:
 e,<A> ->a
+  
 |
 e,<A> ->b
 e, e ->a
 e, e -><B>
+  
 |
 e,<A> ->e
+  
 |
 e,<B> ->b
 e, e -><C>
