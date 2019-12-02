@@ -11,6 +11,7 @@ else:
 if not os.path.isdir(inputdir):
     print("Invalid input directory", inputdir)
     exit(1)
+    
 
 
 def readInput(input):
@@ -78,7 +79,31 @@ def readInput(input):
        gamma.append("$")
        print("gamma ", gamma)
        print("delta:")
-       print("accept state: ", acceptState)       
+       print("accept state: ", acceptState)    
+       
+       #splitting the rules up
+       delta = []
+       delta.append("q_startState -> q1 : e, e-> $")
+       delta.append("q1 -> q_loop : e, e-> "+ startState)
+       delta.append("q_loop:")
+       for petal in rules:
+           readingIn = petal[0:4]
+           print(readingIn)
+           petal = petal[6:len(petal)]
+           petal = petal.split("|")
+           x = len(petal)
+           for y in range(0, x):
+               petal[y] = petal[y].split()
+               petal[y].reverse()
+               delta.append("e,"+ readingIn + "->" + petal[y][0])
+               for p in range(1, len(petal[y])):
+                   delta.append("e, e ->" + petal[y][p])
+               delta.append("|")
+       delta.append("q_loop -> q_accept : $, $->e")
+       print(*delta, sep = '\n')
+       
+       
+       
        
        
        
