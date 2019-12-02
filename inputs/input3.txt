@@ -1,0 +1,6 @@
+{<S>, <T>, <V>}
+{a, b, c}
+<S> :: <S> | <V> c b | e 
+<T> :: <T> <T> a b c | <V> a
+<V> :: b SC> | c | e | <T> <T> a c <V>
+{<S>}

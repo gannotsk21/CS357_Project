@@ -1,0 +1,38 @@
+PDA:
+q_startState -> q1 : e, e-> $
+q1 -> q_loop : e, e-> <S>
+q_loop:
+e,<S> -><S>
+|
+e,<S> ->b
+e, e ->c
+e, e -><V>
+|
+e,<S> ->e
+|
+e,<T> ->c
+e, e ->b
+e, e ->a
+e, e -><T>
+e, e -><T>
+|
+e,<T> ->a
+e, e -><V>
+|
+e,<V> ->SC>
+e, e ->b
+|
+e,<V> ->c
+|
+e,<V> ->e
+|
+e,<V> -><V>
+e, e ->c
+e, e ->a
+e, e -><T>
+e, e -><T>
+|
+a, a -> e
+ b,  b -> e
+ c,  c -> e
+q_loop -> q_accept : $, $->e
