@@ -21,7 +21,7 @@ Example:
 
 Input:
 
-{<A>, <B>, <C>}
+{"<A>", <B>, <C>}
   
 {a, b}
 
